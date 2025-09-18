@@ -14,4 +14,11 @@ let result = numlist.filter((num) => num > 2);
 console.log(result);
 let sum = numlist.reduce((acc, num) => acc + num);
 console.log(sum);
+var Color;
+(function (Color) {
+    Color[Color["Red"] = 0] = "Red";
+    Color[Color["Greem"] = 1] = "Greem";
+    Color[Color["Blue"] = 2] = "Blue";
+})(Color || (Color = {}));
+let c = Color.Blue;
 //# sourceMappingURL=datatype.js.map

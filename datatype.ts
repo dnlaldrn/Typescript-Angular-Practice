@@ -23,9 +23,11 @@ let sum = numlist.reduce((acc, num) => acc + num);
 
 console.log(sum)
 
-enum Color{
+const enum Color{
     Red,
     Greem,
     Blue
 }
 let c: Color = Color.Blue;
+
+
