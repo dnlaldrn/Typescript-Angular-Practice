@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 let name;
 name = "Daniel";
 let newname = name.toUpperCase();
@@ -19,5 +21,4 @@ var Color;
     Color[Color["Blue"] = 2] = "Blue";
 })(Color || (Color = {}));
 let c = Color.Blue;
-export {};
 //# sourceMappingURL=datatype.js.map

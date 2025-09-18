@@ -8,12 +8,6 @@ export interface User {
     email: string;
 }
 
-let {name: UserName email}: User = {
-    name: "Johm",
-    id: 1,
-    email: ""
-}
-
 
 interface EmployeeInformation extends User{
     salary:number;

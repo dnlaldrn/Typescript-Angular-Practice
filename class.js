@@ -1,52 +1,26 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const types = require("mathjs");
-class EmployeeInformation {
-    #id;
-    name;
-    address;
-    get empId() {
-        return this.#id;
+class Rectangle {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+        this.width = width;
+        this.height = height;
     }
-    set empId(id) {
-        this.#id = id;
+    getArea() {
+        return this.width * this.height;
     }
-    static getEmployeeCount() {
-        return 50;
-    }
-    constructor(id, name, address) {
-        this.address = address;
-        this.#id = id;
-        this.name = name;
-    }
-    getNaneWithAddress() {
-        return `${this.name}  stays at ${this.#id}`;
+    toString() {
+        return `Rectangle[width=${this.width}, height=${this.height}]`;
     }
 }
-let john = new EmployeeInformation(1, "John", {
-    street: "Hfsf",
-    city: "nfjhfiusf",
-    state: "mfksfis",
-    pin: "1234",
-});
-john.empId = 100;
-console.log(john.empId);
-EmployeeInformation.getEmployeeCount();
-class Manager extends EmployeeInformation {
-    constructor(id, name, address) {
-        super(id, name, address);
+class Square extends Rectangle {
+    constructor(width) {
+        super(width, width);
     }
-    getNaneWithAddress() {
-        return `${this.name}  stays at ${this.address.state}`;
+    toString() {
+        return `Square: ${this.getArea()}`;
     }
 }
-let mike = new Manager(4, "Mikee", {
-    street: "Hfsf",
-    city: "nfjhfiusf",
-    state: "mfksfis",
-    pin: "1234",
-});
-console.log(mike.getNaneWithAddress());
-let address = john.getNaneWithAddress();
-console.log(address);
+let hshb = new Square(21);
+console.log(hshb.toString());
+export {};
 //# sourceMappingURL=class.js.map
