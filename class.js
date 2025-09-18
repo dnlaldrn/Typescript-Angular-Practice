@@ -23,7 +23,12 @@ class EmployeeInformation {
         return `${this.name}  stays at ${this.#id}`;
     }
 }
-let john = new EmployeeInformation(1, "John", "Batangas Cty");
+let john = new EmployeeInformation(1, "John", {
+    street: "Hfsf",
+    city: "nfjhfiusf",
+    state: "mfksfis",
+    pin: "1234",
+});
 john.empId = 100;
 console.log(john.empId);
 EmployeeInformation.getEmployeeCount();
@@ -32,10 +37,15 @@ class Manager extends EmployeeInformation {
         super(id, name, address);
     }
     getNaneWithAddress() {
-        return `${this.name}  stays at ${this.address}`;
+        return `${this.name}  stays at ${this.address.state}`;
     }
 }
-let mike = new Manager(4, "Mikee", "Hilltop");
+let mike = new Manager(4, "Mikee", {
+    street: "Hfsf",
+    city: "nfjhfiusf",
+    state: "mfksfis",
+    pin: "1234",
+});
 console.log(mike.getNaneWithAddress());
 let address = john.getNaneWithAddress();
 console.log(address);

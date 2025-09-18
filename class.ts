@@ -1,37 +1,60 @@
-import types = require("mathjs");
 
-class EmployeeInformation {
-        #id: number;
+import type { User, Login } from "./interface";
 
-        protected name: string;
+interface Address {
+    street: string;
+    city: string;
+    state: string;
+    pin: string;
+}
 
-        address: string;
-    get empId():number{
+class EmployeeInformation implements Login {
+    #id: number;
+
+    protected name: string;
+
+    address: Address;
+
+
+
+
+    get empId(): number {
         return this.#id;
     }
-    set empId(id:number){
+    set empId(id: number) {
         this.#id = id;
     }
 
-    
-static getEmployeeCount():number{
-    return 50;
+
+    static getEmployeeCount(): number {
+        return 50;
+    }
+
+    constructor(id: number, name: string, address: Address) {
+        this.address = address;
+        this.#id = id;
+        this.name = name;
+    }
+    Login(): User{
+        return { name: "Johm",
+    id: 1,
+    email: ""}
+    }
+
+    getNaneWithAddress(): string {
+        return `${this.name}  stays at ${this.#id}`;
+    }
+
+
+
 }
+let john = new EmployeeInformation(1, "John", {
+    street: "Hfsf",
+    city: "nfjhfiusf",
+    state: "mfksfis",
+    pin: "1234",
 
-        constructor(id:number, name:string, address:string){
-            this.address = address;
-            this.#id = id;
-            this.name = name;
-        }
-
-        getNaneWithAddress() :string{
-            return`${this.name}  stays at ${this.#id}`;
-        }
-
-        
-
-}
-let john = new EmployeeInformation(1, "John", "Batangas Cty");
+});
 john.empId = 100;
 console.log(john.empId);
 
@@ -39,16 +62,21 @@ console.log(john.empId);
 
 EmployeeInformation.getEmployeeCount();
 
-class Manager extends EmployeeInformation{
-    constructor(id: number, name:string, address:string){
+class Manager extends EmployeeInformation {
+    constructor(id: number, name: string, address: Address) {
         super(id, name, address)
     }
-     getNaneWithAddress() :string{
-            return`${this.name}  stays at ${this.address}`;
-        }
+    getNaneWithAddress(): string {
+        return `${this.name}  stays at ${this.address.state}`;
+    }
 }
 
-let mike = new Manager(4, "Mikee", "Hilltop");
+let mike = new Manager(4, "Mikee", {
+    street: "Hfsf",
+    city: "nfjhfiusf",
+    state: "mfksfis",
+    pin: "1234",
+});
 console.log(mike.getNaneWithAddress());
 
 let address = john.getNaneWithAddress();
