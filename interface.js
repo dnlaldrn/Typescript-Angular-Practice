@@ -1,8 +1,0 @@
-let employee = {
-    name: "Johm",
-    id: 4,
-    email: "",
-    salary: 1000
-};
-export {};
-//# sourceMappingURL=interface.js.map
