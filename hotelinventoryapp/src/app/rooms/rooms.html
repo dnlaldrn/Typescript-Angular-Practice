@@ -1,9 +1,35 @@
-<h1>Welcome to {{hotelName}}</h1>
-<div [hidden]="hideRooms"> 
+<h1>Welcome to {{ hotelName }}</h1>
+@if(!hideRooms){
+
 Number of Rooms :
-<div [innerText]="numberOfRooms"></div>
+<div>{{ numberOfRooms }}</div>
+}
 
+@if(room.availableRooms>0){
+<div>
+    Room List
+    <table>
+        <tr>
+            <th>Room Number</th>
+            <th>Room Type</th>
+            <th>Room Price</th>
+            <th>Room Amenities</th>
+            <th>Checkin Time</th>
+            <th>Checkout Time</th>
+        </tr>
+        @for( room of roomList; track room.roomNumber){
+        <tr>
+            <th>{{room.roomNumber}}</th>
+            <th>{{room.roomType}}</th>
+            <th>{{room.price}}</th>
+            <th>{{room.photos}}</th>
+            <th>{{room.checkInTime}}</th>
+            <th>{{room.checkOutTime}}</th>
+        </tr>
+        }
+
+    </table>
 </div>
-
+}
 
 <button (click)="toggle()">Toggle</button>
