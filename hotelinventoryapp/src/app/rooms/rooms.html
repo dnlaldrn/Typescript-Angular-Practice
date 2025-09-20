@@ -2,7 +2,14 @@
 @if(!hideRooms){
 
 Number of Rooms :
-<div>{{ numberOfRooms }}</div>
+<div [ngStyle]="{ 'background-color' : room?.availableRooms ? 'steelblue' : 'red'}"
+[innerText] = "room.availableRooms">
+
+
+</div>
+
+
+
 }
 
 @if(room.availableRooms>0){
@@ -10,6 +17,8 @@ Number of Rooms :
     Room List
     <table>
         <tr>
+            <th>Index</th>
+            <th>Even/Odd</th>
             <th>Room Number</th>
             <th>Room Type</th>
             <th>Room Price</th>
@@ -17,12 +26,16 @@ Number of Rooms :
             <th>Checkin Time</th>
             <th>Checkout Time</th>
         </tr>
-        @for( room of roomList; track room.roomNumber){
-        <tr>
+     
+        @for( room of roomList; track room.roomNumber; let i = $index){
+        <tr [ngClass]="i % 2 === 0? 'even' : 'odd'">
+            
+            <th>{{i}}</th>
+            <th>{{i % 2 == 0? "Even" : "Odd"}}</th>
             <th>{{room.roomNumber}}</th>
             <th>{{room.roomType}}</th>
             <th>{{room.price}}</th>
-            <th>{{room.photos}}</th>
+            <th>{{room.amenities}}</th>
             <th>{{room.checkInTime}}</th>
             <th>{{room.checkOutTime}}</th>
         </tr>

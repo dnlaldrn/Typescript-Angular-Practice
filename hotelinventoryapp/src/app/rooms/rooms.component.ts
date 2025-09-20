@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Room, RoomList } from './room'
+import { NgClass } from  '@angular/common';
+import { NgStyle } from  '@angular/common';
 //import { NgIf } from '@angular/common';
 
 
@@ -7,6 +9,7 @@ import { Room, RoomList } from './room'
   selector: 'hinv-rooms',
   templateUrl: './rooms.html',
   styleUrl: './rooms.css',
+  imports: [NgClass, NgStyle],
   //imports: [NgIf],
 
 })
@@ -17,12 +20,12 @@ export class Rooms {
   hideRooms = false;
   room: Room = {
     totalRoom: 20,
-    availableRooms: 10,
+    availableRooms: 1,
     bookedRooms: 5
   }
 
   roomList: RoomList[] = [{
-    roomNumber:1,
+    roomNumber: 1,
     roomType: "Deluxe Room",
     amenities: "Air Conditioner",
     price: 500,

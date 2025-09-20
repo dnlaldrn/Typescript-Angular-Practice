@@ -10,4 +10,6 @@ import { Rooms } from "./rooms/rooms.component";
 })
 export class App {
   protected readonly title = signal('hotelinventoryapp');
+
+  role = '';
 }
