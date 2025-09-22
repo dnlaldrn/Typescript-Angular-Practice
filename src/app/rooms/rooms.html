@@ -1,0 +1,30 @@
+<h1>Welcome to {{ hotelName }}</h1>
+@if(!hideRooms){
+
+Number of Rooms :
+
+
+
+
+}
+@if(selectedRoom){
+    <div>
+        {{selectedRoom | json}}
+    </div>
+    
+}
+<div>
+    <button (click)="addRoom()">Add Room</button>
+</div>
+
+
+@if(room.availableRooms>0){
+    <hinv-room-list [rooms] = "roomList" [title]="title"
+    (selectedRoom)="selectRoom($event)"></hinv-room-list>
+    
+   
+
+}
+
+<button (click)="toggle()">Toggle</button>
+
